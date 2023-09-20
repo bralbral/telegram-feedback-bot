@@ -9,27 +9,29 @@ router = Router(name="users")
 
 
 # process messages only from PM
-# with allowed content type
-@router.message(
-    F.chat.id == F.from_user.id,
-    F.content_type.in_(
-        {
-            ContentType.TEXT,
-            ContentType.ANIMATION,
-            ContentType.AUDIO,
-            ContentType.DOCUMENT,
-            ContentType.PHOTO,
-            ContentType.VIDEO,
-            ContentType.VOICE,
-        }
-    ),
-)  # type: ignore
-async def handle_supported_type_message(
+@router.message(F.chat.id == F.from_user.id)  # type: ignore
+async def handle_user_message(
     message: Message,
     bot: Bot,
     chat_id: int,
     **kwargs,
 ):
+    if message.content_type not in (
+        ContentType.TEXT,
+        ContentType.ANIMATION,
+        ContentType.AUDIO,
+        ContentType.DOCUMENT,
+        ContentType.PHOTO,
+        ContentType.VIDEO,
+        ContentType.VOICE,
+    ):
+        await message.reply(
+            text="❌ Unsupported message type.<br/>Please check <b>/help</b> command.",
+            parse_mode=SULGUK_PARSE_MODE,
+        )
+
+        return
+
     from_chat_id = message.from_user.id
     message_id = message.message_id
 
@@ -59,32 +61,6 @@ async def handle_supported_type_message(
     await message.reply(text="✅ Please wait for response.")
 
     return
-
-
-# process messages only from PM
-# with disallowed content type
-@router.message(
-    F.chat.id == F.from_user.id,
-    ~F.content_type.in_(
-        {
-            ContentType.TEXT,
-            ContentType.ANIMATION,
-            ContentType.AUDIO,
-            ContentType.DOCUMENT,
-            ContentType.PHOTO,
-            ContentType.VIDEO,
-            ContentType.VOICE,
-        }
-    ),
-)  # type: ignore
-async def handle_unsupported_type_message(
-    message: Message,
-    **kwargs,
-):
-    await message.reply(
-        text="❌ Unsupported message type.<br/>Please check <b>/help</b> command.",
-        parse_mode=SULGUK_PARSE_MODE,
-    )
 
 
 __all__ = ["router"]

@@ -2,7 +2,7 @@
 
 Simple telegram-feedback bot based on aiogram.
 
-Use this bot for communicate with users in case do not want to provide your personal contacts. 
+Use this bot for communicate with users in case you do not want to provide your personal contacts. 
 
 > For example: you are administrator of telegram group or technical support provider.
 

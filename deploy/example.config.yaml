@@ -1,0 +1,8 @@
+TELEGRAM_API_ID=
+TELEGRAM_API_HASH=
+# get UID and GID using commands below
+# id -u
+# id -g
+UID=1000
+GID=1000
+

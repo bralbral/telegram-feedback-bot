@@ -1,0 +1,4 @@
+aiogram==3.0.0
+sulguk==0.5.0
+pydantic-settings==2.0.3
+structlog~=23.1.0

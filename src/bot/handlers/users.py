@@ -39,5 +39,6 @@ async def redirect_message(message: Message, bot: Bot, chat_id: int, **kwargs):
 @router.message()  # type: ignore
 async def unsupported_types(message: Message, **kwargs):
     await message.reply(
-        "❌ Unsupported message type. You can check available message types using /help command."
+        "❌ Unsupported message type. <br/>"
+        "You can check available message types using /help command."
     )

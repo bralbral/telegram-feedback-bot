@@ -22,6 +22,8 @@ async def reply_to_user(message: Message, bot: Bot, **kwargs):
         await bot.copy_message(
             from_chat_id=message.chat.id, chat_id=user_id, message_id=message.message_id
         )
+        await message.reply(text="✅ Answered.")
+
     except TelegramAPIError as ex:
         await message.reply(f"❌ Error during copying: {str(ex)}")
 

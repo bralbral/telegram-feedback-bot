@@ -21,7 +21,7 @@ uvloop.install()
 async def main() -> None:
     config: Config = load_config(config_path=os.path.join(ROOT_DIR, "config.yaml"))
 
-    dp: Dispatcher = setup_dispatcher(logger=logger)
+    dp: Dispatcher = setup_dispatcher(logger=logger, chat_id=config.chat_id)
     bot: Bot = setup_bot(config=config.bot)
 
     await logger.ainfo("Starting bot")

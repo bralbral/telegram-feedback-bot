@@ -9,6 +9,7 @@ def setup_bot(config: BotConfig) -> Bot:
     bot: Bot = Bot(
         token=config.token.get_secret_value(),
     )
+
     # https://github.com/Tishka17/sulguk#example-for-aiogram-users
     bot.session.middleware(AiogramSulgukMiddleware())
     bot.parse_mode = SULGUK_PARSE_MODE

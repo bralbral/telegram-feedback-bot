@@ -1,8 +1,6 @@
-TELEGRAM_API_ID=
-TELEGRAM_API_HASH=
-# get UID and GID using commands below
-# id -u
-# id -g
-UID=1000
-GID=1000
+bot:
+  # get bot token from https://t.me/botfather
+  token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+# chat id for redirect messages
+chat_id: -100XXXXXXXXXXXXX

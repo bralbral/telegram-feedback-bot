@@ -1,6 +1,6 @@
 # telegram-feedback-bot
 
-Simple telegram-feedback bot based on aiogram.
+Simple telegram-feedback bot based on [aiogram](https://github.com/aiogram/aiogram) and [sulguk](https://github.com/Tishka17/sulguk).
 
 Use this bot for communicate with users in case you do not want to provide your personal contacts. 
 
@@ -64,7 +64,7 @@ and build docker image:
 
 And use this image with [docker-compose.yml](./deploy/example.docker-compose.yml) from `deploy` dir.
 
-## Develop && Contributing
+## Develop and Contribute
 
 Feel free to create issue or pull request.
 

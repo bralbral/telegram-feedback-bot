@@ -6,6 +6,24 @@ Use this bot for communicate with users in case you do not want to provide your 
 
 > For example: you are administrator of telegram group or technical support provider.
 
+## Available commands
+
+| Command |    Description    |
+|:-------:|:-----------------:|
+|  /help  | Show help message |
+
+## Usage
+
+Messages with an available [content type](./src/bot/handlers/users.py#L19) will be transfered to admin group or admin chat.
+
+*(See variable `chat_id` from [config.yaml](./deploy/example.config.yaml#L6))*
+
+If the transfer is successful, the requesting party will be notified.
+
+Admin can answer to message by reply. The answer will be sent to the person who asked.
+
+If the transfer is successful, the administrator will be notified.
+
 ## Deploy
 
 ### Install from source
@@ -45,3 +63,13 @@ and build docker image:
 `docker build -t <your_image_name>:<your_tag_name>`
 
 And use this image with [docker-compose.yml](./deploy/example.docker-compose.yml) from `deploy` dir.
+
+## Develop && Contributing
+
+Feel free to create issue or pull request.
+
+For development, you should install the requirements from [requirements_dev.txt](./requirements_dev.txt)
+
+`pip intall -r requirements_dev.txt`
+
+Use [pre-commit.sh](./pre-commit.sh) before commit.

@@ -4,3 +4,29 @@ bot:
 
 # chat id for redirect messages
 chat_id: -100XXXXXXXXXXXXX
+
+# Fill variables below as you want, or use default values.
+# You can use HTML tags provided by the sulguk package.
+# https://github.com/Tishka17/sulguk#readme
+
+#messages:
+#    notify_user_about_success_deliver: ✅ Please wait for response.
+#    help_message: |
+#     <h1>
+#      👋 Hello!
+#      </h1>
+#      <p>
+#          I can redirect to recipient <b>text, audios, voice messages, images, files</b> to recipient.
+#      </p>
+#
+#      <p>
+#       Just send your message and wait for a response!
+#      </p>
+#    notify_admin_about_success_answer: ✅ Answered.
+#
+#errors:
+#  unsupported_type: ❌ Unsupported message type.<br/>Please check <b>/help</b> command.
+#  too_long_message_text: ❌ Too long message text.
+#  too_long_message_caption: ❌ Too long message caption.
+#  copy_message: ❌ Error during copying
+#  extract_user_id: ❌ Error during extract_id

@@ -5,6 +5,9 @@ from aiogram.enums import ContentType
 from aiogram.types import Message
 from sulguk import SULGUK_PARSE_MODE
 
+from src.config import Errors
+from src.config import Messages
+
 router = Router(name="users")
 
 
@@ -14,6 +17,8 @@ async def handle_user_message(
     message: Message,
     bot: Bot,
     chat_id: int,
+    messages: Messages,
+    errors: Errors,
     **kwargs,
 ):
     if message.content_type not in (
@@ -26,7 +31,7 @@ async def handle_user_message(
         ContentType.VOICE,
     ):
         await message.reply(
-            text="❌ Unsupported message type.<br/>Please check <b>/help</b> command.",
+            text=errors.unsupported_type,
             parse_mode=SULGUK_PARSE_MODE,
         )
 
@@ -37,7 +42,7 @@ async def handle_user_message(
 
     if message.text:
         if len(message.text) > 4000:
-            await message.reply("❌ Too long message text")
+            await message.reply(text=errors.too_long_message_text)
             return
 
         message_text = f"<br/>#id{message.from_user.id}<br/>" + message.html_text
@@ -47,6 +52,10 @@ async def handle_user_message(
         )
 
     else:
+        if len(message.caption) > 1000:
+            await message.reply(text=errors.too_long_message_caption)
+            return
+
         caption = message.caption if message.caption else ""
         caption += f"<br/>#id{message.from_user.id}<br/>"
 
@@ -58,7 +67,7 @@ async def handle_user_message(
             parse_mode=SULGUK_PARSE_MODE,
         )
 
-    await message.reply(text="✅ Please wait for response.")
+    await message.reply(text=messages.notify_user_about_success_deliver)
 
     return
 

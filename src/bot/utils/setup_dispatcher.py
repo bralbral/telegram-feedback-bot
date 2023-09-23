@@ -5,13 +5,19 @@ from structlog.stdlib import BoundLogger
 
 from src.bot.handlers import register_handlers
 from src.bot.middlewares import LoggerMiddleware
+from src.config import Errors
+from src.config import Messages
 
 
-def setup_dispatcher(logger: BoundLogger, chat_id: int) -> Dispatcher:
+def setup_dispatcher(
+    logger: BoundLogger, chat_id: int, messages: Messages, errors: Errors
+) -> Dispatcher:
     dp: Dispatcher = Dispatcher(
         storage=MemoryStorage(),
         logger=logger,
         chat_id=chat_id,
+        messages=messages,
+        errors=errors,
         events_isolation=SimpleEventIsolation(),
     )
     dp.message.middleware(LoggerMiddleware(logger=logger))

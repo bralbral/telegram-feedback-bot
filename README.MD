@@ -24,6 +24,8 @@ Admin can answer to message by reply. The answer will be sent to the person who 
 
 If the transfer is successful, the administrator will be notified.
 
+You can [customize the bot's responses](./deploy/example.config.yaml#12), or use default values.
+
 ## Deploy
 
 ### Install from source

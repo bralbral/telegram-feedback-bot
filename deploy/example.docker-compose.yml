@@ -3,8 +3,9 @@ version: '3.7'
 services:
   bot:
     container_name: telegram-feedback-bot
-    restart: always
     image: bral1488/telegram-feedback-bot:main
+    stop_signal: SIGINT
+    restart: always
     volumes:
       - /etc/timezone:/etc/timezone
       - ./config.yaml:/app/config.yaml

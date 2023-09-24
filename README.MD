@@ -14,7 +14,7 @@ Use this bot for communicate with users in case you do not want to provide your 
 
 ## Usage
 
-Messages with an available [content type](./src/bot/handlers/users.py#L19) will be transfered to admin group or admin chat.
+Messages with an available [content type](./src/bot/handlers/users.py#L24) will be transfered to admin group or admin chat.
 
 *(See variable `chat_id` from [config.yaml](./deploy/example.config.yaml#L6))*
 
@@ -47,6 +47,8 @@ Run:
 `python3 -m src`
 
 ### Install with Docker
+
+> Stable release with `main` tag on [dockerhub](https://hub.docker.com/r/bral1488/telegram-feedback-bot/tags)
 
 Just copy [docker-compose.yml](./deploy/example.docker-compose.yml) and fill in  [config.yaml](./deploy/example.config.yaml).
 

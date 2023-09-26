@@ -68,6 +68,13 @@ and build docker image:
 
 And use this image with [docker-compose.yml](./deploy/example.docker-compose.yml) from `deploy` dir.
 
+## Hosting
+You can rent a server from various hosters, for example from [Aeza](https://aeza.net/?ref=380831).
+
+>*By registering via the [link](https://aeza.net/?ref=380831) you will support the project and receive a 15% bonus on your balance, which will be valid for 24 hours.*
+
+The bot will require the simplest VDS, in rubles this is approximately 100-200 for promotional offers, or about 400 rubles per month.
+
 ## Develop and Contribute
 
 Feel free to create issue or pull request.

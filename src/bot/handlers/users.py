@@ -60,7 +60,7 @@ async def handle_user_message(
         )
 
     else:
-        if len(message.caption) > 1000:
+        if message.caption and len(message.caption) > 1000:
             await message.reply(text=errors.too_long_message_caption)
             return
 

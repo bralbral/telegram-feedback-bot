@@ -1,5 +1,7 @@
 aiogram==3.1.1
-sulguk==0.6.0
+# sulguk==0.6.0
+# wait for fix https://github.com/Tishka17/sulguk/issues/19
+git+https://github.com/bralbral/sulguk.git
 pydantic-settings==2.0.3
 pyaml==23.9.7
 structlog~=23.1.0

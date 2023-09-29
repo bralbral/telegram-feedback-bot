@@ -1,7 +1,8 @@
-aiogram==3.1.0
-sulguk==0.5.0
+aiogram==3.1.1
+# sulguk==0.6.0
+# wait for fix https://github.com/Tishka17/sulguk/issues/19
+git+https://github.com/bralbral/sulguk.git
 pydantic-settings==2.0.3
-pyaml==23.9.6
+pyaml==23.9.7
 structlog~=23.1.0
-# asyncio speedup
 uvloop==0.17.0; sys_platform == 'linux'

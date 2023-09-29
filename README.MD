@@ -14,13 +14,13 @@ Use this bot for communicate with users in case you do not want to provide your 
 
 ## Usage
 
-Messages with an available [content type](./src/bot/handlers/users.py#L24) will be transfered to admin group or admin chat.
+Messages with an **available content type** *(TEXT, ANIMATION, AUDIO, DOCUMENT, PHOTO, VIDEO, VOICE)* will be transferred to **admin group** or **admin chat**.
 
 *(See variable `chat_id` from [config.yaml](./deploy/example.config.yaml#L6))*
 
 If the transfer is successful, the requesting party will be notified.
 
-Admin can answer to message by reply. The answer will be sent to the person who asked.
+**Admin** can **answer** to message **by reply**. The answer will be sent to the person who asked.
 
 If the transfer is successful, the administrator will be notified.
 
@@ -67,6 +67,13 @@ and build docker image:
 `docker build -t <your_image_name>:<your_tag_name>`
 
 And use this image with [docker-compose.yml](./deploy/example.docker-compose.yml) from `deploy` dir.
+
+## Hosting
+You can rent a server from various hosters, for example from [Aeza](https://aeza.net/?ref=380831).
+
+>*By registering via the [link](https://aeza.net/?ref=380831) you will support the project and receive a 15% bonus on your balance, which will be valid for 24 hours.*
+
+The bot will require the simplest VDS, in rubles this is approximately 100-200 for promotional offers, or about 500 rubles per month.
 
 ## Develop and Contribute
 

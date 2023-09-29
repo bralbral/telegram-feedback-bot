@@ -14,6 +14,13 @@ router = Router(name="misc")
     Command("start", "help"),
 )  # type: ignore
 async def start_help_handler(message: Message, messages: Messages, **kwargs) -> None:
+    """
+    Handle /start or /help message
+    :param message:
+    :param messages:
+    :param kwargs:
+    :return:
+    """
     await message.answer(
         messages.help_message,
         disable_web_page_preview=True,

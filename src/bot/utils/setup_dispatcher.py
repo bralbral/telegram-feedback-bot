@@ -12,6 +12,13 @@ from src.config import Messages
 def setup_dispatcher(
     logger: BoundLogger, chat_id: int, messages: Messages, errors: Errors
 ) -> Dispatcher:
+    """
+    :param logger:
+    :param chat_id:
+    :param messages:
+    :param errors:
+    :return:
+    """
     dp: Dispatcher = Dispatcher(
         storage=MemoryStorage(),
         logger=logger,

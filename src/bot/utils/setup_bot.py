@@ -7,6 +7,10 @@ from src.config import BotConfig
 
 
 async def setup_bot(config: BotConfig) -> Bot:
+    """
+    :param config:
+    :return:
+    """
     bot: Bot = Bot(
         token=config.token.get_secret_value(),
     )

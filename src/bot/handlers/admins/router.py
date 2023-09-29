@@ -16,6 +16,15 @@ router = Router(name="admins")
 async def reply_to_user(
     message: Message, bot: Bot, messages: Messages, errors: Errors, **kwargs
 ):
+    """
+    Answer to user by reply from admin chat or group
+    :param message:
+    :param bot:
+    :param messages:
+    :param errors:
+    :param kwargs:
+    :return:
+    """
     try:
         user_id = extract_id(message.reply_to_message)
     except ValueError as ex:

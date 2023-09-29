@@ -11,7 +11,6 @@ from src.config import Messages
 router = Router(name="users")
 
 
-# process messages only from PM
 @router.message(F.chat.id == F.from_user.id)  # type: ignore
 async def handle_user_message(
     message: Message,
@@ -21,6 +20,15 @@ async def handle_user_message(
     errors: Errors,
     **kwargs,
 ):
+    """Handle user message and send it to admin chat (group)
+    :param message:
+    :param bot:
+    :param chat_id:
+    :param messages:
+    :param errors:
+    :param kwargs:
+    :return:
+    """
     if message.content_type not in (
         ContentType.TEXT,
         ContentType.ANIMATION,

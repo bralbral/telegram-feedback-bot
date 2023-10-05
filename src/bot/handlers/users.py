@@ -5,6 +5,7 @@ from aiogram.enums import ContentType
 from aiogram.types import Message
 from sulguk import SULGUK_PARSE_MODE
 
+from .utils import extract_userinfo_from_message
 from src.config import Errors
 from src.config import Messages
 
@@ -49,11 +50,11 @@ async def handle_user_message(
     message_id = message.message_id
 
     if message.text:
-        if len(message.text) > 4000:
+        if len(message.text) > 3500:
             await message.reply(text=errors.too_long_message_text)
             return
 
-        message_text = f"<br/>#id{message.from_user.id}<br/>" + message.html_text
+        message_text = extract_userinfo_from_message(message) + message.html_text
 
         await bot.send_message(
             chat_id=chat_id, text=message_text, parse_mode=SULGUK_PARSE_MODE
@@ -65,7 +66,7 @@ async def handle_user_message(
             return
 
         caption = message.caption if message.caption else ""
-        caption += f"<br/>#id{message.from_user.id}<br/>"
+        caption += extract_userinfo_from_message
 
         await bot.copy_message(
             chat_id=chat_id,

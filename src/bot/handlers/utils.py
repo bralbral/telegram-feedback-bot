@@ -17,7 +17,7 @@ def extract_userinfo_from_message(message: Message) -> str:
            <br/>
            last_name: {message.from_user.last_name}
            <br/>
-           language_cod: {message.from_user.language_code}
+           language_code: {message.from_user.language_code}
            <br/>
            </kbd>
            <br/>

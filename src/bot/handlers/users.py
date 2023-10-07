@@ -66,7 +66,7 @@ async def handle_user_message(
             return
 
         caption = message.caption if message.caption else ""
-        caption += extract_userinfo_from_message
+        caption = extract_userinfo_from_message(message) + caption
 
         await bot.copy_message(
             chat_id=chat_id,

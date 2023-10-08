@@ -34,7 +34,7 @@ You can [customize the bot's responses](./deploy/example.config.yaml#12), or use
 
 Just copy source code:
 
-`git pull https://github.com/bralbral/telegram-feedback-bot`
+`git clone https://github.com/bralbral/telegram-feedback-bot.git`
 
 Install requirements:
 
@@ -60,7 +60,7 @@ Of course, you can build image yourself:
 
 Just copy source code:
 
-`git pull https://github.com/bralbral/telegram-feedback-bot`
+`git clone https://github.com/bralbral/telegram-feedback-bot.git`
 
 and build docker image:
 

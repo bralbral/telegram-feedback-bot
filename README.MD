@@ -38,7 +38,7 @@ Just copy source code:
 
 Install requirements:
 
-`pip intall -r requirements.txt`
+`pip install -r requirements.txt`
 
 Fill [config.yml](./deploy/example.config.yaml) and place it to root dir. (In parent dir to `src`)
 
@@ -81,6 +81,6 @@ Feel free to create issue or pull request.
 
 For development, you should install the requirements from [requirements_dev.txt](./requirements_dev.txt)
 
-`pip intall -r requirements_dev.txt`
+`pip install -r requirements_dev.txt`
 
 Use [pre-commit.sh](./pre-commit.sh) before commit.

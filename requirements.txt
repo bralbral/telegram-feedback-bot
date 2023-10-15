@@ -2,5 +2,5 @@ aiogram==3.1.1
 sulguk==0.6.0
 pydantic-settings==2.0.3
 pyaml==23.9.7
-structlog~=23.1.0
+structlog~=23.2.0
 uvloop==0.17.0; sys_platform == 'linux'

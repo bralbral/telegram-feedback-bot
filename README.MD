@@ -22,6 +22,8 @@ If the transfer is successful, the requesting party will be notified.
 
 **Admin** can **answer** to message **by reply**. The answer will be sent to the person who asked.
 
+The user will receive the reply as a **reply** to the original message. If the message does not exist, the user will receive a response with a **separate message**.
+
 If the transfer is successful, the administrator will be notified.
 
 You can [customize the bot's responses](./deploy/example.config.yaml#12), or use default values.

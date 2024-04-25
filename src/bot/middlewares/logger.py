@@ -18,7 +18,7 @@ class LoggerMiddleware(BaseMiddleware):
         event: Message,
         data: Dict[str, Any],
     ) -> Any:
-        await self.logger.ainfo(event=event, data=data)
+        await self.logger.ainfo(event=event)
         return await handler(event, data)
 
 

@@ -8,6 +8,12 @@ repos:
 
   - repo: local
     hooks:
+      # update version on constants.py
+      - id: version_updater
+        name: version_updater
+        entry: python3 ./src/version_updater.py
+        language: python
+
       # For reformatting code
       - id: black
         name: black

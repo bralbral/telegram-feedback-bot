@@ -10,6 +10,8 @@ def extract_userinfo_from_message(message: Message) -> str:
     return f"""
            #id{message.from_user.id}
            <br/>
+           #msgid{message.message_id}
+           <br/>
            <kbd>
            username: {message.from_user.username}
            <br/>

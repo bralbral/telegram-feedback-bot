@@ -5,6 +5,7 @@ from aiogram import F
 from aiogram import Router
 from aiogram.exceptions import TelegramAPIError
 from aiogram.types import Message
+from aiogram.types import MessageId
 
 from .utils import extract_id
 from src.bot.filters import FilterByChatID
@@ -41,9 +42,12 @@ async def reply_to_user(
     except ValueError:
         pass
 
+    # check result of deliver
+    successful_deliver: Optional[MessageId] = None
+
     try:
         try:
-            await bot.copy_message(
+            successful_deliver = await bot.copy_message(
                 from_chat_id=message.chat.id,
                 chat_id=user_id,
                 message_id=message.message_id,
@@ -56,7 +60,7 @@ async def reply_to_user(
                 raise inner_ex
 
             # try to resend message
-            await bot.copy_message(
+            successful_deliver = await bot.copy_message(
                 from_chat_id=message.chat.id,
                 chat_id=user_id,
                 message_id=message.message_id,
@@ -64,6 +68,9 @@ async def reply_to_user(
 
     except TelegramAPIError as ex:
         await message.reply(text=f"{errors.copy_message} {str(ex)}")
+    finally:
+        if successful_deliver:
+            await message.reply(text=messages.notify_admin_about_success_answer)
 
 
 __all__ = ["router"]

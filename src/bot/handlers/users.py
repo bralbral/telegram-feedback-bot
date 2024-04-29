@@ -3,7 +3,6 @@ from aiogram import F
 from aiogram import Router
 from aiogram.enums import ContentType
 from aiogram.types import Message
-from sulguk import SULGUK_PARSE_MODE
 
 from .utils import extract_userinfo_from_message
 from src.config import Errors
@@ -41,7 +40,6 @@ async def handle_user_message(
     ):
         await message.reply(
             text=errors.unsupported_type,
-            parse_mode=SULGUK_PARSE_MODE,
         )
 
         return
@@ -56,9 +54,7 @@ async def handle_user_message(
 
         message_text = extract_userinfo_from_message(message) + message.html_text
 
-        await bot.send_message(
-            chat_id=chat_id, text=message_text, parse_mode=SULGUK_PARSE_MODE
-        )
+        await bot.send_message(chat_id=chat_id, text=message_text)
 
     else:
         if message.caption and len(message.caption) > 1000:
@@ -73,7 +69,6 @@ async def handle_user_message(
             from_chat_id=from_chat_id,
             message_id=message_id,
             caption=caption,
-            parse_mode=SULGUK_PARSE_MODE,
         )
 
     await message.reply(text=messages.notify_user_about_success_deliver)

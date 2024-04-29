@@ -40,6 +40,9 @@ class Errors(BaseSettings):
     too_long_message_caption: str = Field(default="❌ Too long message caption.")
     copy_message: str = Field(default="❌ Error during copying")
     extract_user_id: str = Field(default="❌ Error during extract_id")
+    chat_not_found: str = Field(
+        default="❌ Chat not found. Make sure you have added the bot to the admin group"
+    )
 
 
 class Config(BaseSettings):

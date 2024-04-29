@@ -70,7 +70,7 @@ async def reply_to_user(
         await message.reply(text=f"{errors.copy_message} {str(ex)}")
     finally:
         if successful_deliver:
-            await message.reply(text=messages.notify_user_about_success_deliver)
+            await message.reply(text=messages.notify_admin_about_success_answer)
 
 
 __all__ = ["router"]

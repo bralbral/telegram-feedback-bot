@@ -2,7 +2,6 @@ import structlog
 from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
-from sulguk import SULGUK_PARSE_MODE
 
 from src.config import Messages
 
@@ -24,7 +23,6 @@ async def start_help_handler(message: Message, messages: Messages, **kwargs) -> 
     await message.answer(
         messages.help_message,
         disable_web_page_preview=True,
-        parse_mode=SULGUK_PARSE_MODE,
     )
 
 

@@ -30,3 +30,4 @@ chat_id: -100XXXXXXXXXXXXX
 #  too_long_message_caption: ❌ Too long message caption.
 #  copy_message: ❌ Error during copying
 #  extract_user_id: ❌ Error during extract_id
+#  chat_not_found: ❌ Chat not found. Make sure you have added the bot to the admin group

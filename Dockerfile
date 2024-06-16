@@ -1,22 +1,17 @@
-FROM python:3.11-slim-bullseye
-
-# Update the package list and install required packages
-RUN apt-get update && \
-    apt-get install -y git && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Copy the application source code to the container and set the working directory
-COPY ./requirements.txt /app/requirements.txt
-
-# copy src
-COPY ./src /app/src
+FROM python:3.11-alpine
 
 WORKDIR /app
 
-# Install Python dependencies
-RUN pip3 install --no-cache-dir --upgrade pip && \
-    pip3 install --no-cache-dir -r requirements.txt
+# Copy the application source code to the container
+COPY ./requirements.txt /app/requirements.txt
+COPY ./src /app/src
+
+# Update the package list, install required packages, and install Python dependencies
+RUN apk update && \
+    apk add --no-cache git && \
+    pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt && \
+    rm -rf /var/cache/apk/*
 
 # Set the user to non-root
 USER 1000

@@ -1,0 +1,43 @@
+# create config map
+# for config.yaml
+# and cookies.txt (optional)
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tg-feedback-config
+  namespace: tg-feedback-namespace
+data:
+  config.yaml: |
+    bot:
+      # get bot token from https://t.me/botfather
+      token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+    # chat id for redirect messages
+    chat_id: -100XXXXXXXXXXXXX
+
+    # Fill variables below as you want, or use default values.
+    # You can use HTML tags provided by the sulguk package.
+    # https://github.com/Tishka17/sulguk#readme
+
+    #messages:
+    #    notify_user_about_success_deliver: ✅ Please wait for response.
+    #    help_message: |
+    #     <h1>
+    #      👋 Hello!
+    #      </h1>
+    #      <p>
+    #          I can redirect to recipient <b>text, audios, voice messages, images, files</b> to recipient.
+    #      </p>
+    #
+    #      <p>
+    #       Just send your message and wait for a response!
+    #      </p>
+    #    notify_admin_about_success_answer: ✅ Answered.
+    #
+    #errors:
+    #  unsupported_type: ❌ Unsupported message type.<br/>Please check <b>/help</b> command.
+    #  too_long_message_text: ❌ Too long message text.
+    #  too_long_message_caption: ❌ Too long message caption.
+    #  copy_message: ❌ Error during copying
+    #  extract_user_id: ❌ Error during extract_id
+    #  chat_not_found: ❌ Chat not found. Make sure you have added the bot to the admin group

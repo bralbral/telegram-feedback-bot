@@ -1,0 +1,40 @@
+# create deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tg-feedback
+  namespace: tg-feedback-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tg-feedback
+  template:
+    metadata:
+      labels:
+        app: tg-feedback
+    spec:
+      containers:
+      - name: tg-feedback
+        image: bral1488/telegram-feedback-bot:main
+        imagePullPolicy: Always
+        command: ["sh", "-c", "python -m src"]
+        volumeMounts:
+        - name: config-volume
+          mountPath: /app/config.yaml
+          subPath: config.yaml
+          readOnly: true
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "125m"
+        securityContext:
+          runAsUser: 0
+      volumes:
+      - name: config-volume
+        configMap:
+          name: tg-feedback-config
+      tolerations:
+      - key: "node.kubernetes.io/disk-pressure"
+        operator: "Exists"
+        effect: "NoSchedule"

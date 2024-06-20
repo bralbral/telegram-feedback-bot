@@ -16,7 +16,7 @@ Use this bot for communicate with users in case you do not want to provide your 
 
 Messages with an **available content type** *(TEXT, ANIMATION, AUDIO, DOCUMENT, PHOTO, VIDEO, VOICE)* will be transferred to **admin group** or **admin chat**.
 
-*(See variable `chat_id` from [config.yaml](./deploy/example.config.yaml#L6))*
+*(See variable `chat_id` from [config.yaml](deploy/docker/example.config.yaml#L6))*
 
 If the transfer is successful, the requesting party will be notified.
 
@@ -26,7 +26,7 @@ The user will receive the reply as a **reply** to the original message. If the m
 
 If the transfer is successful, the administrator will be notified.
 
-You can [customize the bot's responses](./deploy/example.config.yaml#12), or use default values.
+You can [customize the bot's responses](deploy/docker/example.config.yaml#12), or use default values.
 
 ## Deploy
 
@@ -42,7 +42,7 @@ Install requirements:
 
 `pip install -r requirements.txt`
 
-Fill [config.yml](./deploy/example.config.yaml) and place it to root dir. (In parent dir to `src`)
+Fill [config.yml](deploy/docker/example.config.yaml) and place it to root dir. (In parent dir to `src`)
 
 Run:
 
@@ -52,7 +52,7 @@ Run:
 
 > Stable release with `main` tag on [dockerhub](https://hub.docker.com/r/bral1488/telegram-feedback-bot/tags)
 
-Just copy [docker-compose.yml](./deploy/example.docker-compose.yml) and fill in  [config.yaml](./deploy/example.config.yaml).
+Just copy [docker-compose.yml](deploy/docker/example.docker-compose.yml) and fill in  [config.yaml](deploy/docker/example.config.yaml).
 
 Run containers:
 
@@ -68,7 +68,25 @@ and build docker image:
 
 `docker build -t <your_image_name>:<your_tag_name>`
 
-And use this image with [docker-compose.yml](./deploy/example.docker-compose.yml) from `deploy` dir.
+### Install with k8s
+
+> Stable release with `main` tag on [dockerhub](https://hub.docker.com/r/bral1488/telegram-youtube-notifier/tags)
+
+Manifests located in [k8s](deploy%2Fk8s) directory.
+
+It consists of `Namespace`, `ConfigMap`, and `Deployment` files.
+
+You need fill sections in  [01_configmap.yaml](deploy%2Fk8s%2F01_configmap.yaml) file.
+
+Apply deployment:
+
+`kubectl apply -f <directory with configs>`
+
+Or you can do it step by step:
+
+`kubectl apply -f <file from config dir>`
+
+And use this image with [docker-compose.yml](deploy/docker/example.docker-compose.yml) from `deploy` dir.
 
 ## Hosting
 You can rent a server from various hosters, for example from [Aeza](https://aeza.net/?ref=380831).

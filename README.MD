@@ -1,7 +1,6 @@
 # telegram-feedback-bot
 
 <p>
-<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
 <a href="https://artifacthub.io/packages/helm/telegram-feedback-bot/telegram-feedback-bot"><img alt="telegram-feedback-bot" src="https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=Helm&labelColor=0F1689"></a>
 <a href="https://hub.docker.com/r/bral1488/telegram-feedback-bot"><img alt="telegram-feedback-bot" src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white"></a>
 </p>

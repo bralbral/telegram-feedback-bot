@@ -122,3 +122,14 @@ For development, you should install the requirements from [requirements_dev.txt]
 `pip install -r requirements_dev.txt`
 
 Use [pre-commit.sh](./pre-commit.sh) before commit.
+
+---
+### Donations
+
+If you would like to make a donation, you can use the following wallets:
+
+- **USDT(TRC20):** TCDgNR9eXJr5ds8ttEKCteaZKyqX6KthJN
+- **USDT(TON):** UQCFEQGkaAzZPNfKEFn4ENfvCMLR2w_04TB16NrkaaDBRudu
+- **TON:** UQCFEQGkaAzZPNfKEFn4ENfvCMLR2w_04TB16NrkaaDBRudu
+
+Thank you for considering supporting my work! Your contributions are greatly appreciated and help me continue to improve this project.

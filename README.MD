@@ -1,5 +1,12 @@
 # telegram-feedback-bot
 
+<p>
+<a href="https://github.com/psf/black"><img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+<a href="https://artifacthub.io/packages/helm/telegram-feedback-bot/telegram-feedback-bot"><img alt="telegram-feedback-bot" src="https://img.shields.io/badge/Helm-0F1689?style=for-the-badge&logo=Helm&labelColor=0F1689"></a>
+<a href="https://hub.docker.com/r/bral1488/telegram-feedback-bot"><img alt="telegram-feedback-bot" src="https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white"></a>
+</p>
+
+
 Simple telegram-feedback bot based on [aiogram](https://github.com/aiogram/aiogram) and [sulguk](https://github.com/Tishka17/sulguk).
 
 Use this bot for communicate with users in case you do not want to provide your personal contacts. 
@@ -86,7 +93,19 @@ Or you can do it step by step:
 
 `kubectl apply -f <file from config dir>`
 
-And use this image with [docker-compose.yml](deploy/docker/example.docker-compose.yml) from `deploy` dir.
+#### Install with Helm Chart
+
+[Helm repo](https://artifacthub.io/packages/helm/telegram-feedback-bot/telegram-feedback-bot)
+
+Add repo:
+
+`helm repo add telegram-feedback-bot https://bralbral.github.io/helm/releases/telegram-feedback-bot`
+
+Install chart:
+
+`helm install my-telegram-feedback-bot telegram-feedback-bot/telegram-feedback-bot --version 0.1.0`
+
+
 
 ## Hosting
 You can rent a server from various hosters, for example from [Aeza](https://aeza.net/?ref=380831).

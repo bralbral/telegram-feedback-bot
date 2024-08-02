@@ -1,4 +1,4 @@
-aiogram==3.7.0
+aiogram==3.10.0
 sulguk==0.8.0
 pydantic-settings==2.3.4
 pyaml==24.7.0

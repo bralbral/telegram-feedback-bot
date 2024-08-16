@@ -128,7 +128,6 @@ Use [pre-commit.sh](./pre-commit.sh) before commit.
 
 If you would like to make a donation, you can use the following wallets:
 
-- **USDT(TRC20):** TCDgNR9eXJr5ds8ttEKCteaZKyqX6KthJN
 - **USDT(TON):** UQCFEQGkaAzZPNfKEFn4ENfvCMLR2w_04TB16NrkaaDBRudu
 - **TON:** UQCFEQGkaAzZPNfKEFn4ENfvCMLR2w_04TB16NrkaaDBRudu
 

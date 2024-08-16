@@ -4,7 +4,6 @@ repos:
     hooks:
       - id: mypy
         args: [ --strict, --ignore-missing-imports, --allow-subclassing-any, --allow-any-generics]
-        additional_dependencies: [types-all]
 
   - repo: local
     hooks:

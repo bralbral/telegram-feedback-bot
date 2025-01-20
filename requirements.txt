@@ -4,4 +4,4 @@ pydantic-settings==2.7.1
 pyaml==25.1.0
 uvloop==0.21.0; sys_platform == 'linux'
 structlog==24.4.0
-orjson==3.10.14
+orjson==3.10.15

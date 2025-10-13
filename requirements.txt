@@ -1,5 +1,5 @@
 aiogram==3.22.0
-sulguk==0.8.0
+sulguk==0.10.1
 pydantic-settings==2.10.1
 pyaml==25.7.0
 uvloop==0.21.0; sys_platform == 'linux'

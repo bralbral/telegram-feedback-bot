@@ -1,6 +1,6 @@
 import os
 
-VERSION: str = "2024-08-16.20"
+VERSION: str = "2026-07-12.09"
 ROOT_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_FILE_PATH: str = os.path.join(ROOT_DIR, "config.yaml")
 

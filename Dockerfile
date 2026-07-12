@@ -1,17 +1,15 @@
-FROM python:3.11-alpine
+FROM python:3.12-alpine
 
 WORKDIR /app
 
-# Copy the application source code to the container
 COPY ./requirements.txt /app/requirements.txt
-COPY ./src /app/src
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# Update the package list, install required packages, and install Python dependencies
-RUN apk update && \
-    apk add --no-cache git && \
-    pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt && \
-    rm -rf /var/cache/apk/*
+COPY ./src /app/src
+RUN mkdir /app/data && chown 1000:1000 /app/data
 
 # Set the user to non-root
 USER 1000
+
+CMD ["python", "-m", "src"]

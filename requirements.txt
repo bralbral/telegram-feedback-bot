@@ -1,7 +1,6 @@
 aiogram==3.27.0
 sulguk==0.11.1
-pydantic-settings==2.14.1
 pyaml==25.7.0
-uvloop==0.22.1; sys_platform == 'linux'
+uvloop==0.22.1
 structlog==25.5.0
 orjson==3.11.9

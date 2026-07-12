@@ -1,16 +1,17 @@
 from aiogram import Dispatcher
-from aiogram.fsm.storage.memory import MemoryStorage
-from aiogram.fsm.storage.memory import SimpleEventIsolation
+from aiogram.fsm.storage.memory import MemoryStorage, SimpleEventIsolation
 from structlog.stdlib import BoundLogger
 
 from src.bot.handlers import register_handlers
 from src.bot.middlewares import LoggerMiddleware
-from src.config import Errors
-from src.config import Messages
+from src.config import Errors, Messages
 
 
 def setup_dispatcher(
-    logger: BoundLogger, chat_id: int, messages: Messages, errors: Errors
+    logger: BoundLogger,
+    chat_id: int,
+    messages: Messages,
+    errors: Errors,
 ) -> Dispatcher:
     """
     :param logger:
@@ -21,7 +22,6 @@ def setup_dispatcher(
     """
     dp: Dispatcher = Dispatcher(
         storage=MemoryStorage(),
-        logger=logger,
         chat_id=chat_id,
         messages=messages,
         errors=errors,

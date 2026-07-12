@@ -8,7 +8,7 @@
 
 Simple telegram-feedback bot based on [aiogram](https://github.com/aiogram/aiogram) and [sulguk](https://github.com/Tishka17/sulguk).
 
-Use this bot for communicate with users in case you do not want to provide your personal contacts. 
+Use this bot for communicate with users in case you do not want to provide your personal contacts.
 
 > For example: you are administrator of telegram group or technical support provider.
 
@@ -80,7 +80,7 @@ and build docker image:
 
 Manifests located in [k8s](deploy%2Fk8s) directory.
 
-It consists of `Namespace`, `ConfigMap`, and `Deployment` files.
+It consists of `Namespace`, a `Secret`, and a `Deployment` file.
 
 You need fill sections in  [01_configmap.yaml](deploy%2Fk8s%2F01_configmap.yaml) file.
 

@@ -1,12 +1,10 @@
-from aiogram import Bot
-from aiogram import F
-from aiogram import Router
+from aiogram import Bot, F, Router
 from aiogram.enums import ContentType
 from aiogram.types import Message
 
+from src.config import Errors, Messages
+
 from .utils import extract_userinfo_from_message
-from src.config import Errors
-from src.config import Messages
 
 router = Router(name="users")
 

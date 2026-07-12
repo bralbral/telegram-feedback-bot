@@ -1,9 +1,7 @@
 from aiogram import Bot
 from aiogram.client.default import DefaultBotProperties
-from aiogram.types import BotCommand
-from aiogram.types import BotCommandScopeDefault
-from sulguk import AiogramSulgukMiddleware
-from sulguk import SULGUK_PARSE_MODE
+from aiogram.types import BotCommand, BotCommandScopeDefault
+from sulguk import SULGUK_PARSE_MODE, AiogramSulgukMiddleware
 
 from src.config import BotConfig
 

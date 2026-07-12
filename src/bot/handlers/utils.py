@@ -1,3 +1,5 @@
+from html import escape
+
 from aiogram.types import Message
 
 
@@ -7,19 +9,27 @@ def extract_userinfo_from_message(message: Message) -> str:
     :param message:
     :return:
     """
+    user = message.from_user
+    if user is None:
+        return "unknown"
+
+    username = escape(user.username or "")
+    first_name = escape(user.first_name or "")
+    last_name = escape(user.last_name or "")
+    language = escape(user.language_code or "")
     return f"""
-           #id{message.from_user.id}
+           #id{user.id}
            <br/>
            #msgid{message.message_id}
            <br/>
            <kbd>
-           username: {message.from_user.username}
+           username: {username}
            <br/>
-           first_name: {message.from_user.first_name}
+           first_name: {first_name}
            <br/>
-           last_name: {message.from_user.last_name}
+           last_name: {last_name}
            <br/>
-           language_code: {message.from_user.language_code}
+           language_code: {language}
            <br/>
            </kbd>
            <br/>

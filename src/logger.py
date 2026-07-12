@@ -53,7 +53,6 @@ def setup_logging() -> None:
         "aiogram.webhook",
         "aiogram.scene",
     ]:
-
         logging.getLogger(_logger_name).handlers.clear()
         logging.getLogger(_logger_name).propagate = False
 

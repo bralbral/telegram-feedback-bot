@@ -1,12 +1,11 @@
-# create config map
-# for config.yaml
-# and cookies.txt (optional)
+# Store the bot token in a Secret, not a ConfigMap.
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: tg-feedback-config
+  name: tg-feedback-secret
   namespace: tg-feedback-namespace
-data:
+type: Opaque
+stringData:
   config.yaml: |
     bot:
       # get bot token from https://t.me/botfather

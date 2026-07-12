@@ -1,52 +1,43 @@
 repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.21
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v1.5.1'  # Use the sha / tag you want to point at
+    rev: v2.2.0
     hooks:
       - id: mypy
-        args: [ --strict, --ignore-missing-imports, --allow-subclassing-any, --allow-any-generics]
+        additional_dependencies: [types-aiofiles, types-requests]
+        args: [--ignore-missing-imports, --explicit-package-bases]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 9.0.0a3
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: debug-statements
 
   - repo: local
     hooks:
-      # update version on constants.py
-      - id: version_updater
-        name: version_updater
-        entry: python3 ./src/version_updater.py
-        language: python
-
-      # For reformatting code
-      - id: black
-        name: black
-        entry: black
-        language: python
-        types: [ python ]
-        args: [ --line-length=88, --target-version=py311 ]
-
-      # For upgrade python code syntax for newer versions of the language
-      - id: pyupgrade
-        name: pyupgrade
-        entry: pyupgrade
-        language: python
-        types: [ python ]
-
-      # Tool for automatically reordering python imports
-      - id: reorder-python-imports
-        name: reorder-python-imports
-        entry: reorder-python-imports
-        language: python
-        types: [ python ]
-
-       # Removes unused imports and unused variables from Python code
-      - id: autoflake
-        name: autoflake
-        entry: autoflake
-        language: python
-        types: [ python ]
-        args: [ --in-place, --remove-all-unused-imports, --remove-duplicate-keys ]
-
-        # sort __all__ statements
-      - id: sort-all
-        name: Sort __all__ records
-        description: Automatically Sort __all__ records alphabetically.
-        entry: sort-all
-        language: python
-        types: [ python ]
+      - id: update-version
+        name: update version
+        entry: python3 -m src.version_updater
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: tests
+        name: tests
+        entry: .venv/bin/python -m pytest -q
+        language: system
+        pass_filenames: false

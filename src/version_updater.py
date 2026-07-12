@@ -2,8 +2,7 @@ import datetime
 import os.path
 import re
 
-from constants import ROOT_DIR
-
+from src.constants import ROOT_DIR
 
 CONSTANT_PY_PATH = os.path.join(ROOT_DIR, "src", "constants.py")
 PATTERN = r"VERSION: str = .+"

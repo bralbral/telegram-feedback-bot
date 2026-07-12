@@ -1,7 +1,4 @@
-from typing import Any
-from typing import Awaitable
-from typing import Callable
-from typing import Dict
+from typing import Any, Awaitable, Callable, Dict
 
 import structlog
 from aiogram import BaseMiddleware
@@ -18,7 +15,13 @@ class LoggerMiddleware(BaseMiddleware):
         event: Message,
         data: Dict[str, Any],
     ) -> Any:
-        await self.logger.ainfo(event=event)
+        self.logger.info(
+            "telegram_message_received",
+            message_id=event.message_id,
+            chat_id=event.chat.id,
+            content_type=event.content_type,
+            from_user_id=event.from_user.id if event.from_user else None,
+        )
         return await handler(event, data)
 
 

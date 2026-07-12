@@ -1,9 +1,11 @@
-from pydantic import Field
-from pydantic import SecretStr
-from pydantic_settings import BaseSettings
+from pydantic import BaseModel, ConfigDict, Field, SecretStr
 
 
-class BotConfig(BaseSettings):
+class StrictModel(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+
+class BotConfig(StrictModel):
     """
     Bot config
     """
@@ -11,7 +13,7 @@ class BotConfig(BaseSettings):
     token: SecretStr
 
 
-class Messages(BaseSettings):
+class Messages(StrictModel):
     notify_user_about_success_deliver: str = Field(
         default="✅ Please wait for response."
     )
@@ -25,14 +27,14 @@ class Messages(BaseSettings):
       </p>
 
       <p>
-       Just send your message and wait for a response! 
+       Just send your message and wait for a response!
       </p>
     """
     )
     notify_admin_about_success_answer: str = Field(default="✅ Answered.")
 
 
-class Errors(BaseSettings):
+class Errors(StrictModel):
     unsupported_type: str = Field(
         default="❌ Unsupported message type.<br/>Please check <b>/help</b> command."
     )
@@ -43,17 +45,18 @@ class Errors(BaseSettings):
     chat_not_found: str = Field(
         default="❌ Chat not found. Make sure you have added the bot to the admin group"
     )
+    reply_not_found: str = Field(default="❌ Reply to a message forwarded by this bot.")
 
 
-class Config(BaseSettings):
+class Config(StrictModel):
     """
     All in one config
     """
 
     bot: BotConfig
     chat_id: int
-    messages: Messages = Messages()
-    errors: Errors = Errors()
+    messages: Messages = Field(default_factory=Messages)
+    errors: Errors = Field(default_factory=Errors)
 
 
 __all__ = ["BotConfig", "Config"]

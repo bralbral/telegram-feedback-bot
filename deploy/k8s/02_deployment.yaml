@@ -14,11 +14,15 @@ spec:
       labels:
         app: tg-feedback
     spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
       containers:
       - name: tg-feedback
         image: bral1488/telegram-feedback-bot:main
         imagePullPolicy: Always
-        command: ["sh", "-c", "python -m src"]
         volumeMounts:
         - name: config-volume
           mountPath: /app/config.yaml
@@ -29,11 +33,14 @@ spec:
             memory: "64Mi"
             cpu: "125m"
         securityContext:
-          runAsUser: 0
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop: ["ALL"]
       volumes:
       - name: config-volume
-        configMap:
-          name: tg-feedback-config
+        secret:
+          secretName: tg-feedback-secret
       tolerations:
       - key: "node.kubernetes.io/disk-pressure"
         operator: "Exists"

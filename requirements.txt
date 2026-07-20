@@ -1,5 +1,5 @@
 aiogram==3.30.0
-sulguk==0.11.1
+sulguk==0.12.0
 pyaml==25.7.0
 uvloop==0.22.1
 structlog==26.1.0
